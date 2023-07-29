@@ -1,0 +1,11 @@
+# Dockerfile.client
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get install -y g++
+
+COPY client.cpp /app/
+WORKDIR /app
+
+RUN g++ -o client client.cpp
+
+CMD ["./client"]
